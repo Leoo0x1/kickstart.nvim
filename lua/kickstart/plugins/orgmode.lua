@@ -9,11 +9,6 @@ return {
       org_default_notes_file = '~/Org/refile.org',
     }
 
-    require('cmp').setup {
-      sources = {
-        { name = 'orgmode' },
-      },
-    }
     vim.opt.conceallevel = 2
     vim.opt.concealcursor = 'nc'
 
