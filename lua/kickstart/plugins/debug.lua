@@ -159,6 +159,15 @@ return {
       -- log_file_level = 2, -- Logging level for output to file. Set to false to disable file logging.
       -- log_console_level = vim.log.levels.ERROR, -- Logging level for output to console. Set to false to disable console output.
     }
+    require('dap').adapters['pwa-node'] = {
+      type = 'server',
+      host = 'localhost',
+      port = '${port}',
+      executable = {
+        command = 'node', -- As I'm using mason, this will be in the path
+        args = { '/home/leo/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js', '${port}' },
+      },
+    }
     local js_based_languages = { 'typescript', 'javascript', 'typescriptreact' }
 
     for _, language in ipairs(js_based_languages) do
